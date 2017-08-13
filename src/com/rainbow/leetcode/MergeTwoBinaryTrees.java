@@ -24,6 +24,13 @@ public class MergeTwoBinaryTrees {
         TreeNode t3 = new MergeTwoBinaryTrees().mergeTrees(t1, t2);
     }
 
+    /**
+     * 递归解法
+     *
+     * @param t1
+     * @param t2
+     * @return
+     */
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if (t1 == null && t2 == null) {
             return null;
@@ -45,6 +52,13 @@ public class MergeTwoBinaryTrees {
         return resultRoot;
     }
 
+    /**
+     * 迭代解法，更偏向于迭代解法。采用堆栈。
+     *
+     * @param t1
+     * @param t2
+     * @return
+     */
     public TreeNode mergeTrees2(TreeNode t1, TreeNode t2) {
         if (t1 == null)
             return t2;
