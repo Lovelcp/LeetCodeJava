@@ -6,7 +6,7 @@ package com.rainbow.leetcode;
 public class PalindromicSubstrings {
     public static void main(String[] args) {
         String str = "abaaba";
-        System.out.println(new PalindromicSubstrings().countSubstrings(str));
+        System.out.println(new PalindromicSubstrings().countSubstrings1(str));
     }
 
     public int countSubstrings(String s) {
