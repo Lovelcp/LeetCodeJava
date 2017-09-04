@@ -1,5 +1,7 @@
 package com.rainbow.leetcode;
 
+import java.util.Stack;
+
 /**
  * https://leetcode.com/problems/maximum-binary-tree/description/
  * <p>
@@ -16,6 +18,30 @@ public class MaximumBinaryTree {
 
         int[] nums2 = new int[] { 9, 1, 2, 7, 5, 4, 6, 8 };
         TreeNode result2 = new MaximumBinaryTree().iterationSolution(nums2);
+
+        int[] nums3 = new int[] { 9, 1, 2, 7, 5, 4, 6, 8 };
+        TreeNode result3 = new MaximumBinaryTree().stackSolution(nums3);
+    }
+
+    /**
+     * 栈的实现，本质上和迭代思路差不多，只是添加了栈是从根的最右端往上找
+     * @param nums
+     * @return
+     */
+    public TreeNode stackSolution(int[] nums) {
+        Stack<TreeNode> stack = new Stack<>();
+        for (int i = 0; i < nums.length; i++) {
+            TreeNode cur = new TreeNode(nums[i]);
+            while (!stack.isEmpty() && stack.peek().val < nums[i]) {
+                cur.left = stack.peek();
+                stack.pop();
+            }
+            if (!stack.isEmpty()) {
+                stack.peek().right = cur;
+            }
+            stack.push(cur);
+        }
+        return stack.firstElement();
     }
 
     public TreeNode recursiveSolution(int[] nums) {
